@@ -19,3 +19,7 @@ jobs:
     steps:
       - checkout
       - run: echo "hello world"
+      - run:
+          name: Test with HTMLproofer
+          command: bundle exec htmlproofer jekyll/_site --allow-hash-href --check-favicon --check-html --disable-external --empty-alt-ignore | tee $JOB_RESULTS_PATH/htmlproofer-results.txt
+      
